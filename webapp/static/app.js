@@ -100,14 +100,14 @@ function renderStats(a) {
 }
 
 function renderSetupBanner(env, analytics) {
-  const hasLLM     = env.ANTHROPIC_API_KEY || env.OPENAI_API_KEY;
-  const hasVisuals = env.PEXELS_API_KEY || env.FAL_KEY || env.POLLINATIONS_KEY || env.REPLICATE_API_TOKEN;
+  const hasLLM     = env.ANTHROPIC_API_KEY || env.OPENAI_API_KEY || env.GEMINI_API_KEY;
+  const hasVisuals = env.PEXELS_API_KEY || env.FAL_KEY || env.POLLINATIONS_KEY || env.REPLICATE_API_TOKEN || env.GEMINI_API_KEY;
   const hasVideos  = analytics.total_videos > 0;
   const hasPublish = env.AYRSHARE_API_KEY || env.UPLOAD_POST_API_KEY;
 
   const steps = [
-    { title: 'Add an LLM key', desc: 'Claude (Anthropic) or OpenAI — powers idea generation & scripting. Paste into your .env file.', done: !!hasLLM, action: 'settings' },
-    { title: 'Add a Pexels key (free)', desc: 'Free stock B-roll for your videos. Sign up at pexels.com/api — takes 60 seconds.', done: !!hasVisuals, action: 'settings' },
+    { title: 'Add an LLM key', desc: 'Claude (Anthropic), OpenAI, or Gemini — powers idea generation & scripting. Paste into your .env file.', done: !!hasLLM, action: 'settings' },
+    { title: 'Configure a visuals provider', desc: 'Add a key for the provider selected in settings, such as Pexels, fal.ai, or Gemini Nano Banana.', done: !!hasVisuals, action: 'settings' },
     { title: 'Generate your first video', desc: 'Go to Generate → pick a channel → keep Dry-run ON → hit Start. A video appears in Library.', done: hasVideos, action: 'generate' },
     { title: 'Connect a publish provider', desc: 'Ayrshare posts to YouTube, TikTok, Instagram & Facebook with a single API token.', done: !!hasPublish, action: 'settings' },
   ];
@@ -170,7 +170,7 @@ function renderQuickChannels() {
 
 function loadSidebarKeys(env) {
   const labels = {
-    ANTHROPIC_API_KEY:'Claude', OPENAI_API_KEY:'OpenAI',
+    ANTHROPIC_API_KEY:'Claude', OPENAI_API_KEY:'OpenAI', GEMINI_API_KEY:'Gemini',
     PEXELS_API_KEY:'Pexels', ELEVENLABS_API_KEY:'ElevenLabs',
     AYRSHARE_API_KEY:'Ayrshare',
   };
@@ -591,6 +591,7 @@ async function loadKeyPanel() {
   const KEYS = [
     { key:'ANTHROPIC_API_KEY', label:'Anthropic (Claude)', tag:'LLM' },
     { key:'OPENAI_API_KEY',    label:'OpenAI (GPT)',       tag:'LLM' },
+    { key:'GEMINI_API_KEY',    label:'Google Gemini',     tag:'LLM / AI Images' },
     { key:'ELEVENLABS_API_KEY',label:'ElevenLabs',         tag:'Voice' },
     { key:'PEXELS_API_KEY',    label:'Pexels',             tag:'Visuals' },
     { key:'FAL_KEY',           label:'fal.ai',             tag:'AI Images' },

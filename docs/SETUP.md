@@ -13,7 +13,8 @@
 | Voiceover (premium) | **ElevenLabs** | 10k chars/mo free | elevenlabs.io |
 | Voiceover (free) | `edge-tts` | 100% free | no key needed |
 | Stock visuals (free) | **Pexels** | free | pexels.com/api |
-| AI visuals (premium) | fal.ai / pollinations.ai / Replicate | pay-as-go | fal.ai · pollinations.ai · replicate.com |
+| AI visuals | **Gemini Nano Banana** | usage-based | [Google AI Studio](https://aistudio.google.com/apikey) |
+| AI visuals (premium) | fal.ai / pollinations.ai / Replicate | pay-as-you-go | fal.ai · pollinations.ai · replicate.com |
 | Publishing (all 4) | **Ayrshare** | free tier | ayrshare.com |
 | or | upload-post.com | free tier | upload-post.com |
 
@@ -48,9 +49,13 @@ Edit [`config/settings.yaml`](../config/settings.yaml):
 ```yaml
 llm:        { provider: anthropic, model: claude-sonnet-4-6 }
 tts:        { provider: edge }          # edge (free) | elevenlabs
-visuals:    { provider: pexels }        # pexels | fal | pollinations | replicate
+visuals:    { provider: pexels }        # pexels | fal | pollinations | replicate | gemini
 publish:    { provider: dry_run }       # dry_run | ayrshare | upload_post
 ```
+
+For Gemini image generation, set `visuals.provider: gemini` and optionally choose a model
+with `visuals.ai_image_model` (defaults to `gemini-3.1-flash-lite-image`, Nano Banana 2 Lite).
+Add `GEMINI_API_KEY` to `.env`; other supported Nano Banana model names can be selected there.
 
 Start with `tts: edge`, `visuals: pexels`, `publish: dry_run` to validate the pipeline for free.
 

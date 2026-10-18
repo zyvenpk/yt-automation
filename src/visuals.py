@@ -1,6 +1,7 @@
 """Stage 4 — gather one vertical visual per beat. Pexels stock (free) or AI images."""
 from __future__ import annotations
 
+import base64
 import math
 from pathlib import Path
 from typing import Optional
@@ -37,7 +38,7 @@ def gather_visuals(cfg: dict, script: dict, out_dir: Path, duration: float) -> l
         try:
             if provider == "pexels":
                 paths.append(_pexels_video(q, dest, cfg, used_ids))
-            elif provider in ("fal", "pollinations", "replicate"):
+            elif provider in ("fal", "pollinations", "replicate", "gemini"):
                 paths.append(_ai_image(q, dest, cfg, provider))
             else:
                 raise ValueError(f"Unknown visuals.provider: {provider}")
@@ -107,6 +108,26 @@ def _ai_image(prompt: str, dest: Path, cfg: dict, provider: str) -> Path:
         if not key:
             raise SystemExit("POLLINATIONS_KEY missing in .env")
         img_url = f"https://gen.pollinations.ai/image/{full}?aspectRatio=9:16&model=black-forest-labs/flux.1-schnell&key={key}"
+    elif provider == "gemini":
+        key = env("GEMINI_API_KEY")
+        if not key:
+            raise SystemExit("GEMINI_API_KEY missing in .env")
+        model = cfg["visuals"].get("ai_image_model", "gemini-3.1-flash-lite-image")
+        r = requests.post(
+            "https://generativelanguage.googleapis.com/v1beta/interactions",
+            headers={"x-goog-api-key": key, "Content-Type": "application/json"},
+            json={
+                "model": model,
+                "input": [{"type": "text", "text": full}],
+            },
+            timeout=180,
+        )
+        r.raise_for_status()
+        image_data = r.json().get("output_image", {}).get("data")
+        if not image_data:
+            raise RuntimeError(f"Gemini model {model!r} returned no image data")
+        out.write_bytes(base64.b64decode(image_data, validate=True))
+        return out
     else:  # replicate
         key = env("REPLICATE_API_TOKEN")
         if not key:

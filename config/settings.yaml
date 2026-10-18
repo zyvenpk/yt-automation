@@ -23,10 +23,11 @@ tts:
   elevenlabs_stability: 0.4
 
 visuals:
-  provider: pollinations             # pexels (free stock) | fal | pollinations | replicate (AI images)
+  provider: gemini             # pexels | fal | pollinations | replicate | gemini
   clips_per_video: 12          # ~1 visual per 2–3s of a 25–35s video
   orientation: portrait        # portrait b-roll for 9:16
   ai_image_style: "cinematic, high detail, dramatic lighting, vertical 9:16"
+  ai_image_model: gemini-3.1-flash-lite-image # Gemini Nano Banana image model (when provider: gemini)
 
 captions:
   enabled: true

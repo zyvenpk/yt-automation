@@ -124,7 +124,7 @@ PEXELS_API_KEY=...
 | `OPENAI_API_KEY` | [platform.openai.com](https://platform.openai.com) | Pay-as-you-go | Alternative LLM (`llm.provider: openai`) |
 | `GROQ_API_KEY` | [console.groq.com](https://console.groq.com) | **Free tier** | Free LLM (`llm.provider: groq`) |
 | `OPENROUTER_API_KEY` | [openrouter.ai/keys](https://openrouter.ai/keys) | **Free models available** | Free LLM (`llm.provider: openrouter`) |
-| `GEMINI_API_KEY` | [aistudio.google.com/apikey](https://aistudio.google.com/apikey) | **Free tier** | Free LLM (`llm.provider: gemini`) |
+| `GEMINI_API_KEY` | [aistudio.google.com/apikey](https://aistudio.google.com/apikey) | Free tier / usage-based images | Gemini LLM or Nano Banana image visuals |
 | *(none — Ollama)* | [ollama.com](https://ollama.com) | **Free, local, no key** | Free offline LLM (`llm.provider: ollama`) |
 | `PEXELS_API_KEY` | [pexels.com/api](https://www.pexels.com/api/) | **Free, unlimited** | Stock B-roll (default visuals) |
 | `ELEVENLABS_API_KEY` | [elevenlabs.io](https://elevenlabs.io) | Free tier (10k chars/mo), then paid | Premium voiceover (optional) |
@@ -354,7 +354,7 @@ option**. Switch providers in `config/settings.yaml` — **no code changes**.
 |-------|---------------------|-----------------|
 | LLM (ideas+script) | **Ollama** (local) · **Groq / OpenRouter / Gemini** (free tiers) | **Claude** (`claude-opus-4-8`/`claude-sonnet-4-6`) or GPT |
 | Voiceover | `edge-tts` (free, no key) | **ElevenLabs** (best retention) |
-| Visuals | **Pexels** stock (free) | AI images (fal / Replicate) |
+| Visuals | **Pexels** stock (free) | AI images (fal / Replicate / Gemini Nano Banana) |
 | Captions | `faster-whisper` (local, free) | — |
 | Assembly | **ffmpeg** (free) | — |
 | Publishing | `dry_run` (free, local only) | **Ayrshare / upload-post** (1 API → all 4 platforms) |
