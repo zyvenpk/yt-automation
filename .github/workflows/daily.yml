@@ -15,7 +15,7 @@ on:
       channel:
         description: "Single channel key (leave blank to run ALL channels)"
         type: string
-        default: ""
+        default: "zyvenpk"
 
 # Needed so the job can commit the updated topic-history back to the repo.
 permissions:
