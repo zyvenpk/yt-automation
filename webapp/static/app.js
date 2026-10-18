@@ -101,7 +101,7 @@ function renderStats(a) {
 
 function renderSetupBanner(env, analytics) {
   const hasLLM     = env.ANTHROPIC_API_KEY || env.OPENAI_API_KEY;
-  const hasVisuals = env.PEXELS_API_KEY || env.FAL_KEY || env.REPLICATE_API_TOKEN;
+  const hasVisuals = env.PEXELS_API_KEY || env.FAL_KEY || env.POLLINATIONS_KEY || env.REPLICATE_API_TOKEN;
   const hasVideos  = analytics.total_videos > 0;
   const hasPublish = env.AYRSHARE_API_KEY || env.UPLOAD_POST_API_KEY;
 
@@ -594,6 +594,7 @@ async function loadKeyPanel() {
     { key:'ELEVENLABS_API_KEY',label:'ElevenLabs',         tag:'Voice' },
     { key:'PEXELS_API_KEY',    label:'Pexels',             tag:'Visuals' },
     { key:'FAL_KEY',           label:'fal.ai',             tag:'AI Images' },
+    { key:'POLLINATIONS_KEY',           label:'pollinations.ai',             tag:'AI Images' },
     { key:'REPLICATE_API_TOKEN',label:'Replicate',         tag:'AI Images' },
     { key:'AYRSHARE_API_KEY',  label:'Ayrshare',           tag:'Publishing' },
     { key:'UPLOAD_POST_API_KEY',label:'upload-post.com',   tag:'Publishing' },
