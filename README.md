@@ -129,6 +129,7 @@ PEXELS_API_KEY=...
 | `PEXELS_API_KEY` | [pexels.com/api](https://www.pexels.com/api/) | **Free, unlimited** | Stock B-roll (default visuals) |
 | `ELEVENLABS_API_KEY` | [elevenlabs.io](https://elevenlabs.io) | Free tier (10k chars/mo), then paid | Premium voiceover (optional) |
 | `FAL_KEY` | [fal.ai](https://fal.ai) | Pay-per-image | AI-generated visuals (optional) |
+| `POLLINATIONS_KEY` | [pollinations.ai](https://enter.pollinations.ai) | Pay-per-image | AI-generated visuals (optional) |
 | `REPLICATE_API_TOKEN` | [replicate.com](https://replicate.com) | Pay-per-image | AI-generated visuals (optional) |
 | `AYRSHARE_API_KEY` | [ayrshare.com](https://www.ayrshare.com) | Paid (~$29/mo) | Auto-publish to all 4 platforms |
 | `UPLOAD_POST_API_KEY` | [upload-post.com](https://upload-post.com) | Paid | Alternative publish aggregator |

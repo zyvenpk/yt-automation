@@ -13,7 +13,7 @@
 | Voiceover (premium) | **ElevenLabs** | 10k chars/mo free | elevenlabs.io |
 | Voiceover (free) | `edge-tts` | 100% free | no key needed |
 | Stock visuals (free) | **Pexels** | free | pexels.com/api |
-| AI visuals (premium) | fal.ai / Replicate | pay-as-go | fal.ai · replicate.com |
+| AI visuals (premium) | fal.ai / pollinations.ai / Replicate | pay-as-go | fal.ai · pollinations.ai · replicate.com |
 | Publishing (all 4) | **Ayrshare** | free tier | ayrshare.com |
 | or | upload-post.com | free tier | upload-post.com |
 
@@ -48,7 +48,7 @@ Edit [`config/settings.yaml`](../config/settings.yaml):
 ```yaml
 llm:        { provider: anthropic, model: claude-sonnet-4-6 }
 tts:        { provider: edge }          # edge (free) | elevenlabs
-visuals:    { provider: pexels }        # pexels | fal | replicate
+visuals:    { provider: pexels }        # pexels | fal | pollinations | replicate
 publish:    { provider: dry_run }       # dry_run | ayrshare | upload_post
 ```
 
