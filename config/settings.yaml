@@ -65,7 +65,7 @@ metadata:
   hashtags_per_post: 5         # 1 broad + 3 niche + 1 branded (Playbook §5)
 
 publish:
-  provider: dry_run            # dry_run | ayrshare | upload_post
+  provider: ayrshare            # dry_run | ayrshare | upload_post
   queue: false                 # true = generate + queue for manual review, don't post live
   stagger_seconds: 300         # space platform uploads apart
   platforms: [youtube, tiktok, instagram, facebook]
