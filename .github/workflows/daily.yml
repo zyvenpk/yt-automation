@@ -11,7 +11,7 @@ on:
       dry_run:
         description: "Build only, do NOT post (overrides settings.yaml)"
         type: boolean
-        default: true
+        default: false
       channel:
         description: "Single channel key (leave blank to run ALL channels)"
         type: string
