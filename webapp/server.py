@@ -148,7 +148,7 @@ def env_status():
     vals = dotenv_values(ROOT / ".env")
     keys = ["ANTHROPIC_API_KEY", "OPENAI_API_KEY", "GROQ_API_KEY",
             "OPENROUTER_API_KEY", "GEMINI_API_KEY", "ELEVENLABS_API_KEY",
-            "PEXELS_API_KEY", "FAL_KEY", "REPLICATE_API_TOKEN",
+            "PEXELS_API_KEY", "FAL_KEY", "POLLINATIONS_KEY", "REPLICATE_API_TOKEN",
             "AYRSHARE_API_KEY", "UPLOAD_POST_API_KEY"]
     return {k: _key_present(vals.get(k)) for k in keys}
 

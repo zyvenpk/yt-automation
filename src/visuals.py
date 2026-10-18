@@ -37,7 +37,7 @@ def gather_visuals(cfg: dict, script: dict, out_dir: Path, duration: float) -> l
         try:
             if provider == "pexels":
                 paths.append(_pexels_video(q, dest, cfg, used_ids))
-            elif provider in ("fal", "replicate"):
+            elif provider in ("fal", "pollinations", "replicate"):
                 paths.append(_ai_image(q, dest, cfg, provider))
             else:
                 raise ValueError(f"Unknown visuals.provider: {provider}")
@@ -102,6 +102,11 @@ def _ai_image(prompt: str, dest: Path, cfg: dict, provider: str) -> Path:
         )
         r.raise_for_status()
         img_url = r.json()["images"][0]["url"]
+    elif provider == "pollinations":
+        key = env("POLLINATIONS_KEY")
+        if not key:
+            raise SystemExit("POLLINATIONS_KEY missing in .env")
+        img_url = f"https://gen.pollinations.ai/image/{full}?aspectRatio=9:16&model=black-forest-labs/flux.1-schnell&key={key}"
     else:  # replicate
         key = env("REPLICATE_API_TOKEN")
         if not key:
