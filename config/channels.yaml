@@ -51,7 +51,7 @@ channels:
     voice: en-US-GuyNeural
     visual_style: "Minecraft gameplay footage across all modes: survival, creative builds, minigames, parkour, redstone contraptions, mod showcases, cinematic shaders, bright blocky landscapes."
     music_mood: "upbeat, adventurous, playful, energetic"
-    platforms: [youtube, tiktok, instagram, facebook]
+    platforms: [youtube, instagram, facebook]
     series: false
     posts_per_day: 1
 
