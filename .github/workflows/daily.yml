@@ -75,7 +75,7 @@ jobs:
             DRY="--dry-run"
           fi
           if [ "${{ inputs.channel }}" != "all" ]; then
-            python -m src.orchestrator --channel "${{ inputs.channel || "zyvenpk" }}" --count 1 $DRY
+            python -m src.orchestrator --channel "${{ inputs.channel || 'zyvenpk' }}" --count 1 $DRY
           else
             python -m src.orchestrator --all $DRY
           fi
