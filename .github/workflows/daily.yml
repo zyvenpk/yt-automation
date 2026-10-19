@@ -13,7 +13,7 @@ on:
         type: boolean
         default: false
       channel:
-        description: "Single channel key (leave blank to run ALL channels)"
+        description: "Single channel key (leave all to run ALL channels)"
         type: string
         default: "zyvenpk"
 
@@ -74,8 +74,8 @@ jobs:
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.dry_run }}" = "true" ]; then
             DRY="--dry-run"
           fi
-          if [ -n "${{ inputs.channel }}" ]; then
-            python -m src.orchestrator --channel "${{ inputs.channel }}" --count 1 $DRY
+          if [ "${{ inputs.channel }}" != "all" ]; then
+            python -m src.orchestrator --channel "${{ inputs.channel || "zyvenpk" }}" --count 1 $DRY
           else
             python -m src.orchestrator --all $DRY
           fi
